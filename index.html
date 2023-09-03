@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+      <meta name="viewport" content="height=device-height, width=device-width,initial-scale=1.0,maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+
+
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div id="app">
+
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+
+  <style lang="scss">
+    *{
+        padding: 0;
+        margin: 0;
+        text-decoration:none;
+    }
+    html,body{
+       height:100%;
+
+     }
+    #app {
+      height: 100%;
+      background-color: #fafafa;
+      position:relative;
+    }
+
+    @media (min-width:488px) {
+      body {
+        width: 488px;
+        margin: 0 auto;
+
+      }
+    }
+
+
+
+    .inps input {
+          border: none;
+          background-color: transparent;
+          font-size: 2vh /* 16/100 */;
+          margin-left: -8px;
+          border-radius: 0;
+      }
+
+      .submitBtn {
+          background-color: transparent;
+          color: #39f;
+          width: 200px;
+      }
+
+
+    #zhuce{
+        width: 130px;
+        position: absolute;
+     top: 65px;
+    }
+
+    .el-header{
+      height: 50px;
+    }
+    .el-main {
+      --el-main-padding: 0px 20px 0 20px;
+    }
+    .el-footer {
+      height: 35px;
+    }
+
+  </style>
+</html>
+
+
+

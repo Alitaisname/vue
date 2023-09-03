@@ -1,0 +1,28 @@
+{
+  "name": "vuep1",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite"
+
+  },
+  "dependencies": {
+    "@arco-design/web-vue": "^2.37.4",
+    "@arco-plugins/vite-vue": "^1.4.0",
+    "@element-plus/icons-vue": "^2.0.9",
+    "element-plus": "^2.2.17",
+    "jieba": "^1.0.0",
+    "qs": "^6.11.0",
+    "sass": "^1.55.0",
+    "vue": "^3.2.38",
+    "vue-axios": "^3.4.1",
+    "vue-router": "^4.1.5"
+  },
+  "devDependencies": {
+    "@types/qs": "^6.9.7",
+    "@vitejs/plugin-vue": "^3.0.3",
+    "axios": "^1.0.0",
+    "vant": "^3.6.4",
+    "vite": "^3.0.9",
+    "vuex": "^4.0.2"
+  }
+}
