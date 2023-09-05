@@ -16,8 +16,8 @@ export default {
       },
       loginRules: {
         account: [
-            { required: true, message: "请输入账号", trigger: "blur" },
-            {max:16 ,min:1,message: "超出长度",trigger: "blur" }
+            { required: true, message: "请输入邮箱", trigger: "blur" },
+
         ],
         password: [
             { required: true, message: "请输入密码", trigger: "blur"}
@@ -62,7 +62,7 @@ export default {
       console.log("用户输入的账号为：", userAccount);
       console.log("用户输入的密码为：", userPassword);
 
-      axios.post('http://localhost:80/l/login',qs.stringify({
+      axios.post('l/login',qs.stringify({
         name: userAccount,
         password: userPassword
       }) ).then(res=> {
