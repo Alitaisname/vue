@@ -13,13 +13,14 @@ export default {
       id:this.$store.state.user.id ,
       name:[],
       items:[],
-      items2:[]
+      items2:[],
+      server_url:axios.defaults.baseURL
     }
   },methods:{
     list(imgList){
       let arr=[]
       for(let imga of imgList){
-        arr.push('http://localhost:80/l/'+imga.img)
+        arr.push(this.server_url+'/l/'+imga.img)
       }
       return  arr
     }, async cxdz(){
@@ -197,7 +198,7 @@ export default {
       <div class="taitou"  @click="move1(item.user_id)">
         <div  >
           <div class="touxiang">
-            <el-avatar  :lazy="true" :size="50" :src="`http://localhost:80/l/${item.user_pic}`" fit="fill" />
+            <el-avatar  :lazy="true" :size="50" :src="this.server_url+`/l/${item.user_pic}`" fit="fill" />
           </div>
           <div class="xinxi">
             <span>{{ item.nickname}}</span>
@@ -215,7 +216,7 @@ export default {
         <el-image
             v-for="imga in item.imageList"
             style="width: 100px; height: 100px ;margin-right:5px; "
-            :src="`http://localhost:80/l/${imga.img}`"
+            :src="this.server_url+`/l/${imga.img}`"
             :preview-src-list="list(item.imageList)"
             :initial-index="0"
             fit="cover"
