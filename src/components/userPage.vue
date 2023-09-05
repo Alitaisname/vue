@@ -54,14 +54,15 @@ export default {
       b_pic:'',
       user_pic:'',
       nickname:'',
-      dataLoaded:false
+      dataLoaded:false,
+      server_url:axios.defaults.baseURL
     }
   }, computed: {
 
 
 
     use_pic() {
-      return 'http://localhost:80/l/' + this.$store.state.user.user_pic
+      return this.server_url+'/l/' + this.$store.state.user.user_pic
     },
     getQueryString() {
       let str = window.location.pathname
@@ -145,8 +146,8 @@ export default {
           console.log(  res.data.data.nickname)
 
             this.nickname=res.data.data.nickname
-          this.b_pic ='http://localhost:80/l/'+  res.data.data.b_pic
-          this.user_pic='http://localhost:80/l/'+  res.data.data.user_pic
+          this.b_pic =this.server_url+'/l/'+  res.data.data.b_pic
+          this.user_pic=this.server_url+'/l/'+  res.data.data.user_pic
         },err=>{
           console.log(err)
         }

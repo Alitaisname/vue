@@ -62,7 +62,7 @@ export default {
       console.log("用户输入的账号为：", userAccount);
       console.log("用户输入的密码为：", userPassword);
 
-      axios.post('l/login',qs.stringify({
+      axios.post('/l/login',qs.stringify({
         name: userAccount,
         password: userPassword
       }) ).then(res=> {

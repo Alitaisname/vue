@@ -62,14 +62,15 @@ export default {
       nickname:'',
       b_pic:'',
       user_pic:'',
-      dataLoaded:false
+      dataLoaded:false,
+      server_url:axios.defaults.baseURL
     }
   }, computed: {
     b_pic() {
-      return 'http://localhost:80/l/' + this.$store.state.user.b_pic
+      return this.server_url+'/l/' + this.$store.state.user.b_pic
     },
     user_pic() {
-      return 'http://localhost:80/l/' + this.$store.state.user.user_pic
+      return this.server_url+'/l/'  + this.$store.state.user.user_pic
     },
 
   },
@@ -127,8 +128,8 @@ export default {
         res=>{
 
           console.log(  res.data.data.b_pic)
-          this.b_pic ='http://localhost:80/l/'+  res.data.data.b_pic
-          this.user_pic='http://localhost:80/l/'+  res.data.data.user_pic
+          this.b_pic =this.server_url+'/l/'+  res.data.data.b_pic
+          this.user_pic=this.server_url+'/l/'+  res.data.data.user_pic
 
         },err=>{
           console.log(err)
