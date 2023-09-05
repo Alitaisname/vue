@@ -191,7 +191,7 @@ export default {
       <div class="taitou"  >
         <div  >
           <div class="touxiang" @click="move1(item.user_id)">
-            <el-avatar  :lazy="true" :size="50" :src="url1+`l/${item.user_pic}`" fit="fill" />
+            <el-avatar  :lazy="true" :size="50" :src="url1+`/l/${item.user_pic}`" fit="fill" />
           </div>
           <div class="xinxi">
             <span>{{ item.nickname}}</span>
@@ -212,7 +212,7 @@ export default {
         <el-image
             v-for="imga in item.imageList"
             style="width: 100px; height: 100px ;margin-right:5px; "
-            :src="url1+`/${imga.img}`"
+            :src="url1+`/l/${imga.img}`"
             :preview-src-list="list(item.imageList)"
             :initial-index="0"
             fit="cover"
