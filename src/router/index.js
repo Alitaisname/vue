@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import register from "../components/register.vue";
 import login from "../components/login.vue";
-import main from "../components/main.vue";
+import square from "../components/square.vue";
 const blank =()=>import('../components/blank.vue')
 import middle from "../components/middle.vue";
 import upFooter from "../components/upFooter.vue";
@@ -17,9 +17,11 @@ import userpage from "../components/userPage.vue";
 
 import cc from "../components/cc.vue";
 import ccc from "../components/ccc.vue";
+import { createWebHashHistory } from 'vue-router';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
+  // history: createWebHashHistory(),
   routes: [
     {
       path: '/login',
@@ -28,9 +30,9 @@ const router = createRouter({
     },
     {
       path: '/main',
-      name: 'main',
-      components: {main},
-      meta: { keepAlive: true },
+      name: 'square',
+      components: {square},
+      // meta: { keepAlive: true },
       children: [
         {
           path: '',

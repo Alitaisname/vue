@@ -1,23 +1,20 @@
 
-<script>
+<script lang="ts">
 
 import axios from "axios";
 import qs from "qs";
-import IconCommunity from './icons/IconCommunity.vue'
 
+let items:[{}]
 export default {
   name: "mainpage",
   props:['i'],
   data: function () {
     return {
-
        id:'',
         name:[],
       items:[],
-      times:1
+
     }
-  },components:{
-    IconCommunity
   },
   methods:{
     async cxname(item) {
@@ -91,6 +88,7 @@ export default {
       // 异步操作props的i
       console.log(data)
       this.items=Array.from(data)
+      console.log(this.items)
 
       axios.post('/l/dz', qs.stringify({ id: this.id })).then(
           res => {
@@ -123,15 +121,7 @@ export default {
             });
             // console.log(this.items[0]);
           }
-
-
       );
-
-
-
-
-
-
     },
 
     //  cztp(item) {
@@ -192,6 +182,7 @@ export default {
 <!--      No items available.-->
 <!--    </div>-->
 <!--  </div>-->
+
   <el-scrollbar >
 
     <div v-for="(item,k) in this.items" :key="item" class="scrollbar-demo-item">
@@ -261,7 +252,7 @@ export default {
 
 
 
-<style lang="scss" scoped>
+<style  scoped>
 .scrollbar-demo-item {
 
   align-items: center;
@@ -310,8 +301,4 @@ export default {
   margin-top:3px;
   font-size:13px;
 }
-</style>
-<style scoped>
-
-
 </style>

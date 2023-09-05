@@ -8,14 +8,20 @@ import ElementPlus from 'element-plus'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import logining from './App.vue'
 import { createStore } from 'vuex'
+// import Vconsole from 'vconsole'
+// //开发环境增加调试面板
+// if (import.meta.env.DEV) {
+//     new Vconsole()
+// }
 
+axios.defaults.baseURL='http://localhost:80';
 
 
 // 创建一个新的 store 实例
 
 const app = createApp(App)
-axios.defaults.baseURL='http://localhost:80'
-;
+
+
 
 
 app.use(VueAxios, axios)
@@ -54,3 +60,5 @@ const store = createStore({
 app.use(store)
 
 app.mount('#app')
+
+export default {store}

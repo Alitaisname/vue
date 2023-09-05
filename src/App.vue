@@ -64,7 +64,7 @@ export default {
 <!--      <el-footer>Footer</el-footer>-->
 <!--    </el-container>-->
 <!--  </div>-->
-  <router-view name="main"></router-view>
+  <router-view name="square"></router-view>
   <router-view name="comment"></router-view>
   <router-view  name="login" ></router-view>
   <router-view name="register"></router-view>

@@ -49,7 +49,7 @@ import router from "../router";
 
 export default {
 
-  name: "main",
+  name: "square",
 
 
   methods:

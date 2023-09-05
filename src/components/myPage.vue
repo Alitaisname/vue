@@ -38,7 +38,7 @@
 <div></div>
     <div style="margin: 10px 20px">
       <KeepAlive>
-       <middle :i="items"></middle>
+       <middle v-if="this.dataLoaded" :i="items"></middle>
         </KeepAlive>
 
     </div>
@@ -53,7 +53,7 @@ import axios from "axios";
 import qs from "qs";
 
 export default {
-  data:function (){
+  data(){
     return {
         id:this.$store.state.user.id,
         items:[],
@@ -62,6 +62,7 @@ export default {
       nickname:'',
       b_pic:'',
       user_pic:'',
+      dataLoaded:false
     }
   }, computed: {
     b_pic() {
@@ -73,39 +74,41 @@ export default {
 
   },
   methods:{
-     my(){
-
-     }
-  },
-    beforeCreate() {
-
+    loadData() {
+      axios.post("/tiezi/cx", qs.stringify({ id: this.id }))
+          .then(res => {
+            this.items = res.data.reverse();
+            console.log(this.items);
+          }, err => {
+            console.log(err);
+          }).then(
+          () => {
+            const promises = [];
+            for (let i in this.items) {
+              promises.push(
+                  axios.post('/l/czimg', qs.stringify({ id: this.items[i].wz_id })).then(
+                      ress => {
+                        this.items[i].imageList = ress.data;
+                      }
+                  )
+              );
+            }
+            Promise.all(promises).then(() => {
+              this.dataLoaded = true;
+            });
+          }
+      )
     },
- created() {
+  },
+  beforeMount() {
     this.$router.removeRoute('login')
     axios.defaults.headers.post['Authorization'] = this.$store.state.user.token
-   this.nickname=sessionStorage.nickname
-    axios.post("/tiezi/cx",qs.stringify({id:this.id}))
-        .then(res=> {
-           this.items= res.data
-          console.log(this.items)
-          return this.items.reverse()
-        },err=>{
-          console.log(err)
-        }).then(
-            res=>{
+    this.nickname=sessionStorage.nickname
+    this.loadData();
 
-              for(let i in res){
-                axios.post('/l/czimg', qs.stringify({id: res[i].wz_id})).then(
-                    ress=>{
 
-                      res[i].imageList=ress.data
-                    }
-                )
-              }
-              console.log(this.items)
 
-            }
-          )
+
 
     axios.post("/my/cxgzs",qs.stringify({id:this.id}))
           .then(res=> {

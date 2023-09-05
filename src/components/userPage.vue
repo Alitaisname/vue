@@ -33,7 +33,7 @@
 
     <div style="margin: 80px 20px">
       <KeepAlive>
-      <middle :i="items.reverse()"></middle> </KeepAlive>
+      <middle  v-if="this.dataLoaded" :i="items"></middle> </KeepAlive>
     </div>
 
   </el-main>
@@ -46,14 +46,15 @@ import axios from "axios";
 import qs from "qs";
 
 export default {
-  data:function (){
+  data(){
     return {
 
       items:[],
       kg:true,
       b_pic:'',
       user_pic:'',
-      nickname:''
+      nickname:'',
+      dataLoaded:false
     }
   }, computed: {
 
@@ -103,38 +104,40 @@ export default {
           }, err => {
             console.log(err)
           });
-    }
-
+    },
+    loadData() {
+      axios.post("/tiezi/cx", qs.stringify({ id: this.getQueryString }))
+          .then(res => {
+            this.items = res.data;
+            console.log(this.items);
+            return this.items;
+          }, err => {
+            console.log(err);
+          }).then(
+          res => {
+            const promises = [];
+            for (let i in res) {
+              promises.push(
+                  axios.post('/l/czimg', qs.stringify({ id: res[i].wz_id })).then(
+                      ress => {
+                        res[i].imageList = ress.data;
+                      }
+                  )
+              );
+            }
+            Promise.all(promises).then(() => {
+              this.items.reverse();
+              this.dataLoaded = true;
+            });
+          }
+      )
+    },
   },
   beforeMount() {
 
     axios.defaults.headers.post['Authorization'] = this.$store.state.user.token
-    axios.post("/tiezi/cx",qs.stringify({id:this.getQueryString}))
-        .then(res=> {
-          this.items= res.data
-          console.log(this.items)
-          return this.items
-        },err=>{
-          console.log(err)
-        }).then(
-        res=>{
-          this.items.reverse()
-          for(let i in res){
-            axios.post('/l/czimg', qs.stringify({id: res[i].wz_id})).then(
-                ress=>{
 
-                  res[i].imageList=ress.data
-
-                }
-            )
-
-          }
-          console.log(this.items)
-          console.log(res)
-
-
-        }
-    )
+    this.loadData();
 
     axios.post('/l/userinfo',qs.stringify({id:this.getQueryString})).then(
         res=>{

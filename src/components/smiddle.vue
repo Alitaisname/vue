@@ -78,6 +78,7 @@ export default {
   },
   created() {
     axios.defaults.headers.post['Authorization'] = this.$store.state.user.token
+
     axios.post("/my/cxsb", qs.stringify({id: this.$store.state.user.id}))
         .then(res => {
           console.log(typeof this.items)
