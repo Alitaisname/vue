@@ -1,22 +1,22 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import register from "../components/register.vue";
-import login from "../components/login.vue";
-import square from "../components/square.vue";
-const blank =()=>import('../components/blank.vue')
-import middle from "../components/middle.vue";
-import upFooter from "../components/upFooter.vue";
-import myPage from "../components/myPage.vue";
-import unloginhome from "../components/unloginhome.vue";
-const write=()=>import("../components/write.vue");
-import shezhi from "../components/shezhi.vue";
-import subscribe from "../components/subscribe.vue";
-import subscribed from "../components/subscribed.vue";
-import smiddle from "../components/smiddle.vue";
-import comment from "../components/comment.vue";
-import userpage from "../components/userPage.vue";
+const register = () => import("../components/register.vue");
+const login = () => import("../components/login.vue");
+const square = () => import("../components/square.vue");
+const blank = () => import("../components/blank.vue");
+const middle = () => import("../components/middle.vue");
+const upFooter = () => import("../components/upFooter.vue");
+const myPage = () => import("../components/myPage.vue");
+const unloginhome = () => import("../components/unloginhome.vue");
+const write = () => import("../components/write.vue");
+const shezhi = () => import("../components/shezhi.vue");
+const subscribe = () => import("../components/subscribe.vue");
+const subscribed = () => import("../components/subscribed.vue");
+const smiddle = () => import("../components/smiddle.vue");
+const comment = () => import("../components/comment.vue");
+const userpage = () => import("../components/userPage.vue");
+const cc = () => import("../components/cc.vue");
+const ccc = () => import("../components/ccc.vue");
 
-import cc from "../components/cc.vue";
-import ccc from "../components/ccc.vue";
 import { createWebHashHistory } from 'vue-router';
 
 const router = createRouter({
