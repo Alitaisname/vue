@@ -4,7 +4,7 @@ import router from './router/index.js'
 import  axios from 'axios'
 import VueAxios from 'vue-axios'
 
-import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+// import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import logining from './App.vue'
 import { createStore } from 'vuex'
 // import Vconsole from 'vconsole'
@@ -25,9 +25,7 @@ const app = createApp(App)
 
 app.use(VueAxios, axios)
 
-for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
-    app.component(key, component)
-}
+
 
 app.use(router)
 
