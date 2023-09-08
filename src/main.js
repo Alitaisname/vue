@@ -13,7 +13,7 @@ import { createStore } from 'vuex'
 //     new Vconsole()
 // }
 
-axios.defaults.baseURL='https://shishis2.zeabur.app';
+axios.defaults.baseURL='http://110.40.170.89:3000';
 
 
 // 创建一个新的 store 实例

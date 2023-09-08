@@ -8,7 +8,7 @@ import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
-
+import viteCompression from 'vite-plugin-compression'
 import { visualizer } from 'rollup-plugin-visualizer'
 export default defineConfig({
 
@@ -101,7 +101,7 @@ export default defineConfig({
     //     'esnext.string.match-all'
     //   ]
     // }),
-    vue()
+    vue(),viteCompression()
   ],
 
 })
