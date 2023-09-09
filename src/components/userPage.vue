@@ -5,7 +5,7 @@
 
   <el-main id="mp1">
       <span id="back">      <router-link to="" @click="this.$router.go(-1)">
-        <el-icon size="20px" color="#FFFFFF" ><Back  style=""/></el-icon>
+        <el-icon size="20px" color="#FFFFFF" ><i-ep-Back  style=""/></el-icon>
       </router-link>
       </span>
     <div id="tt">

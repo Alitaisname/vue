@@ -6,7 +6,7 @@
   <el-main id="mp1">
     <div id="tt">
       <a id="shezhi" href="/shezhi">
-        <el-icon :size="25" color="#FFFF"><Tools /></el-icon>
+        <el-icon :size="25" color="#FFFF"><i-ep-Tools /></el-icon>
       </a>
       <el-image style="width: 100%; height: 100%" :src="this.b_pic" fit="fill" />
       <div class="yuan">

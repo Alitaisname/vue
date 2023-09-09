@@ -24,7 +24,7 @@
             >
             <el-button round style="flex:1">
               <el-icon>
-                <Plus/>
+                <i-ep-Plus/>
               </el-icon>
             </el-button>
           </el-col>

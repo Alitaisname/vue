@@ -101,7 +101,7 @@ export default {
 <template>
     <div class="login" style="" id="login3">
       <span id="back">      <router-link to="/main">
-        <el-icon size="20px" color="#595fd1" ><Back  style=""/></el-icon>
+        <el-icon size="20px" color="#595fd1" ><i-ep-Back  style=""/></el-icon>
       </router-link>
       </span>
 
@@ -125,7 +125,7 @@ export default {
             <el-row>
 
               <el-col :span="2">
-                <el-icon :size="20" style="vertical-align: middle;"><UserFilled  /></el-icon>
+                <el-icon :size="20" style="vertical-align: middle;"><i-ep-UserFilled  /></el-icon>
               </el-col>
 
               <el-col :span="22">
@@ -144,7 +144,7 @@ export default {
           <el-form-item label="" prop="password">
             <el-row>
               <el-col :span="2">
-              <el-icon :size="20" style="vertical-align: middle"><Lock /></el-icon>
+              <el-icon :size="20" style="vertical-align: middle"><i-ep-Lock /></el-icon>
               </el-col>
               <el-col :span="22">
                 <el-input

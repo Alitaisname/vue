@@ -227,7 +227,7 @@ export default {
       <div class="comment_dz">
         <div class="icons-container">
           <span style="margin-right:25px">
-            <el-icon style="font-size: 18px;"><ChatRound /></el-icon>
+            <el-icon style="font-size: 18px;"><i-ep-ChatRound /></el-icon>
            <span style="position: relative;top: -3px;left:5px;font-size: 14px">{{item.remark}}</span>
           </span>
 

@@ -1,7 +1,7 @@
 <template>
 
        <span id="back">      <router-link to @click="this.$router.back(-1)">
-        <el-icon size="20px" color="#10437e" ><Back  style=""/></el-icon>
+        <el-icon size="20px" color="#10437e" ><i-ep-Back  style=""/></el-icon>
       </router-link>
       </span>
 

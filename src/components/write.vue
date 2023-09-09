@@ -3,7 +3,7 @@
     <el-col :span="12">
       <span id="back">
         <router-link to="/main">
-          <el-icon size="20px" color="#3f4762"><Back style=""/></el-icon>
+          <el-icon size="20px" color="#3f4762"><i-ep-Back style=""/></el-icon>
         </router-link>
       </span>
     </el-col>
@@ -34,7 +34,7 @@
       :data="textarea2 + id"
       :on-success="handleUploadSuccess"
   >
-    <el-icon><Plus /></el-icon>
+    <el-icon><i-ep-Plus /></el-icon>
   </el-upload>
   <el-dialog v-model="dialogVisible">
     <img w-full :src="dialogImageUrl" alt="Preview Image" />
