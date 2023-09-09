@@ -75,30 +75,17 @@ export default {
 
   },
   methods:{
-    loadData() {
+   loadData() {
       axios.post("/tiezi/cx", qs.stringify({ id: this.id }))
           .then(res => {
+            console.log(res)
             this.items = res.data.reverse();
             console.log(this.items);
+            this.dataLoaded=true
+            return this.items
           }, err => {
             console.log(err);
-          }).then(
-          () => {
-            const promises = [];
-            for (let i in this.items) {
-              promises.push(
-                  axios.post('/l/czimg', qs.stringify({ id: this.items[i].wz_id })).then(
-                      ress => {
-                        this.items[i].imageList = ress.data;
-                      }
-                  )
-              );
-            }
-            Promise.all(promises).then(() => {
-              this.dataLoaded = true;
-            });
-          }
-      )
+          })
     },
   },
   beforeMount() {

@@ -62,7 +62,7 @@ export default {
 
 
     use_pic() {
-      return this.server_url+'/l/' + this.$store.state.user.user_pic
+      return axios.defaults.baseURL + this.$store.state.user.user_pic
     },
     getQueryString() {
       let str = window.location.pathname

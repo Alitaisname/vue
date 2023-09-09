@@ -45,29 +45,32 @@ export default {
             this.items = res.data;
             // console.log()
             // console.log(this.items)
-            return this.items;
+            this.dataLoaded = true
+            console.log(this.items)
+            return this.items.reverse();
+
           }, err => {
             console.log(err);
-          }).then(
-          res => {
-            const promises = [];
-            for (let i in res) {
-              promises.push(
-                  axios.post('/l/czimg', qs.stringify({ id: res[i].wz_id })).then(
-                      ress => {
-                        res[i].imageList = ress.data;
-                        console.log(i);
-                      }
-                  )
-              );
-            }
-            Promise.all(promises).then(() => {
-              // 当所有请求都完成后，反转items并设置dataLoaded为true
-              this.items.reverse();
-              this.dataLoaded = true;
-            });
-          }
-      )
+          })
+      // .then(
+      // res => {
+      //   const promises = [];
+      //   for (let i in res) {
+      //     promises.push(
+      //         axios.post('/l/czimg', qs.stringify({ id: res[i].wz_id })).then(
+      //             ress => {
+      //               res[i].imageList = ress.data;
+      //               console.log(i);
+      //             }
+      //         )
+      //     );
+      //   }
+      //   Promise.all(promises).then(() => {
+      //     // 当所有请求都完成后，反转items并设置dataLoaded为true
+      //     this.items.reverse();
+      //     this.dataLoaded = true;
+      //   });
+      // }),
     },
     handleClick(tab, event){
       if(event.target.innerHTML==="关注<!---->"){

@@ -30,12 +30,8 @@ export default defineConfig({
   build:{
     rollupOptions:{
       plugins:[visualizer()],
-      external: ['vue'],
+      // external: ['vue'],
     },
-    // externals: {  // 新加这部分
-    //   'vue': 'Vue',
-    //
-    // }
   },
 
   plugins: [

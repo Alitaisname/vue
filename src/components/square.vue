@@ -2,7 +2,7 @@
   <div class="common-layout" >
     <el-container>
        <router-view name="upFooter"></router-view>
-      <KeepAlive> <router-view name="myPage"></router-view></KeepAlive>
+     <router-view name="myPage"></router-view>
 
       <router-view name="unloginhome"></router-view>
       <router-view name="userpage"></router-view>

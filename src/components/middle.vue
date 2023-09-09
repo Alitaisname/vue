@@ -17,18 +17,7 @@ export default {
     }
   },
   methods:{
-    async cxname(item) {
-      axios.post('/l/userinfo', qs.stringify({id: item.user_id})).then(
-          res => {
 
-             item.nickname=res.data.data.nickname
-            item.user_pic=res.data.data.user_pic
-
-          }
-
-      )
-
-    },
     async deltz(id1) {
       axios.post('/tiezi/del', qs.stringify({ wz_id: id1 }))
           .then(response => {
@@ -59,11 +48,12 @@ export default {
     list(imgList){
       let arr=[]
       for(let imga of imgList){
-        arr.push(this.url1+'/l/'+imga.img)
+        arr.push('http://localhost:80/l/'+imga)
       }
       return  arr
-
     },
+
+
     // move(id){
     //   if(this.id)
     //  this.$router.push(`/${id}/comment`)
@@ -144,8 +134,6 @@ export default {
 
        )
 
-    },c(){
-
     }
 
   },
@@ -187,7 +175,7 @@ export default {
 
     <div v-for="(item,k) in this.items" :key="item" class="scrollbar-demo-item">
 
-    <div style="display: none"> {{cxname(item)}}</div>
+
       <div class="taitou"  >
         <div  >
           <div class="touxiang" @click="move1(item.user_id)">
@@ -210,10 +198,10 @@ export default {
       </div>
       <div  >
         <el-image
-            v-for="imga in item.imageList"
+            v-for="imga in item.imgList"
             style="width: 100px; height: 100px ;margin-right:5px; "
-            :src="this.url1+`/l/${imga.img}`"
-            :preview-src-list="list(item.imageList)"
+            :src="`http://localhost:80/l/${imga}`"
+            :preview-src-list="list(item.imgList)"
             :initial-index="0"
             fit="cover"
             :lazy="true"

@@ -13,8 +13,8 @@ import { createStore } from 'vuex'
 //     new Vconsole()
 // }
 
-axios.defaults.baseURL='http://110.40.170.89:3000';
-
+// axios.defaults.baseURL='http://110.40.170.89:3000';
+axios.defaults.baseURL='http://localhost:80';
 
 // 创建一个新的 store 实例
 
